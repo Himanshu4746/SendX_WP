@@ -31,25 +31,18 @@ function my_plugin_options() {
 		<a href="#" target="_blank">Support</a>
 		<div id="confirm"></div>
 		<div>
-			<form id="frm" action="">
-				Account ID <input type="text" name="acid" value=""><br>
-			</form>
-			<button onclick="myFunction()">Save Changes</button>
+			<h2>Account ID<h2>
+			<input type="text" id="acid" value=""><br>
+			<button onclick="myFunction();">Save Changes</button>
 
-			<div id="demo" style="display:none;">id:</div>
+			<div id="demo"></div>
 
 			<script>
-				function myFunction() {
-					var x = document.getElementById("frm");
-					var text = "";
-					var i;
-					for (i = 0; i < x.length ;i++) {
-						text += x.elements[i].value;
-					}
-					//document.getElementById("demo").innerHTML = text;
-					//document.cookie=text;
+				function myFunction(){
+					var text = document.getElementById("acid").value;
+					document.getElementById("demo").innerHTML = text;
 					if(text){
-					document.getElementById("confirm").innerHTML = "Settings Saved";
+						document.getElementById("confirm").innerHTML = "Settings Saved";
 					}
 				}
 			</script>

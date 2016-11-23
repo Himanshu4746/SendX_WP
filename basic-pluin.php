@@ -31,17 +31,25 @@ function my_plugin_options() {
 		<a href="#" target="_blank">Support</a>
 		<div id="confirm"></div>
 		<div>
+			
+			<form action="welcome_get.php" method="get">
+				Account ID: <input type="text" name="name"><br>
+				<input type="submit">
+			</form>
+			
 			<h2>Account ID<h2>
 			<input type="text" id="acid" value=""><br>
 			<button onclick="myFunction();">Save Changes</button>
 
 			<div id="demo"></div>
-
+			<script src="../wp-content/plugins/SendX/js.cookie.js"></script>
 			<script>
 				function myFunction(){
 					var text = document.getElementById("acid").value;
 					document.getElementById("demo").innerHTML = text;
+					//Cookies.set('my_team_id',text, { expires: 7 });
 					if(text){
+						Cookies.set('my_team_id', text , { expires: 7 });
 						document.getElementById("confirm").innerHTML = "Settings Saved";
 					}
 				}
@@ -54,10 +62,13 @@ function my_plugin_options() {
 //alert
 
 function fxn_load_custom_script(){
-	$ACCID="A140";
+	//$ACCID="A140";
 	//wp_register_style('custom_plugin_css',plugin_dir_url(__FILE__).ACCID.'/main.css',false,'0.1');
 	//wp_enqueue_style('custom_plugin_css');
-	wp_enqueue_script('custom_plugin_js',plugin_dir_url(__FILE__).$ACCID.'/script.js');
+	//wp_enqueue_script('custom_plugin_js','https://cdn.sendx.io/prod/0tm1Xz3dsgIdBfXZDxr1G7.js');
+	//https://cdn.sendx.io/prod/0tm1Xz3dsgIdBfXZDxr1G7.js
+	
+	wp_enqueue_script('custom_plugin_js',plugin_dir_url(__FILE__).'/script.js');
 }
 //add_action( 'admin_enqueue_scripts', 'fxn_load_custom_script');
 add_action( 'wp_enqueue_scripts', 'fxn_load_custom_script');

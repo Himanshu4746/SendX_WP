@@ -1,3 +1,4 @@
+//cookies
 var d = document.createElement('script');
 d.type = 'text/javascript';
 d.src = './wp-content/plugins/SendX/js.cookie.js';

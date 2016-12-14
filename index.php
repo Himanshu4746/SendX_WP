@@ -38,7 +38,6 @@ function my_plugin_options() {
 					var text = document.getElementById("msg").value;
 					var display = "Your message is: " + text;
 					document.getElementById("demo").innerHTML = display;
-					//Cookies.set('my_id',text, { expires: 7 });
 					if(text){
 						Cookies.set('my_id', text , { expires: 7 });
 						document.getElementById("confirm").innerHTML = "Settings Saved";

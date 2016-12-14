@@ -1,3 +1,4 @@
+//function calls
 window.onload = function () { 
 	var message = Cookies.get('my_id') ||"Id is not set!";
 	console.log("Id: "+ message);
